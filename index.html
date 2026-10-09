@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <h1>SpendWise</h1>
+        <p>Manage your money wisely.</p>
+
+        <section class="summary">
+            <div class="card">
+                <h3>Monthly Budget</h3>
+                <p id="budget">KES 10,000.00</p>
+            </div>
+            <div class="card">
+                <h3>Total Expenses</h3>
+                <p id="total">KES 0.00</p>
+            </div>
+            <div class="card">
+                <h3>Remaining Balance</h3>
+                <p id="balance">KES 10,000.00</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Set Monthly Budget</h2>
+            <form id="budget-form">
+                <label for="budget-input">Budget (KES)</label>
+                <input id="budget-input" type="number"
+                       min="0.01" step="0.01" required>
+                <button type="submit">Update Budget</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Add an Expense</h2>
+            <form id="expense-form">
+                <label for="expense-name">Expense Name</label>
+                <input id="expense-name" type="text" required>
+
+                <label for="expense-amount">Amount (KES)</label>
+                <input id="expense-amount" type="number"
+                       min="0.01" step="0.01" required>
+
+                <label for="expense-category">Category</label>
+                <select id="expense-category" required>
+                    <option value="">Select category</option>
+                    <option>Food</option>
+                    <option>Transport</option>
+                    <option>Rent</option>
+                    <option>Entertainment</option>
+                    <option>Other</option>
+                </select>
+
+                <button type="submit">Add Expense</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Budget Feedback</h2>
+            <p id="feedback" aria-live="polite">
+                Your budget is ready.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Expense History</h2>
+            <p id="empty-message">No expenses yet.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expense-list"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
